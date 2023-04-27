@@ -1,4 +1,4 @@
-
+import { merchItems } from "./data.js"
 
 document.addEventListener('click', function (e) {
     if (e.target.dataset.shirt) {
@@ -6,6 +6,21 @@ document.addEventListener('click', function (e) {
     }
 })
 
+function getItemsListHtml() {
+    let itemsList = ''
+
+    merchItems.forEach(function (item) {
+        itemsList += `
+        <div class="merch-item">
+            <h2>${item.itemName}</h2>
+            <i class="gg-add" id="gg-add" data-${item.itemName}="${item.itemName}"></i>
+            <p>${item.price}</p>
+        </div>`
+    })
+    return itemsList
+}
+
+document.getElementById('items-list').innerHTML = getItemsListHtml()
 
 
 

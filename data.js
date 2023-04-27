@@ -1,7 +1,8 @@
 const merchItems = {
     shirt: {
         price: 20,
-        description: 'Heavyweight garment dyed 100% cotton t-shirt. Screen print on chest and back. Printed label. Standard Fit.'
+        description: 'Heavyweight garment dyed 100% cotton t-shirt. Screen print on chest and back. Printed label. Standard Fit.',
+        idName: 'shirt'
     }
 
     // vinyl: {

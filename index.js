@@ -1,15 +1,6 @@
 import { merchItems } from "./data.js"
 
-// function callback() {
-//     if (e.target.dataset === element.data)
-// }
-
-// function forEach(callback) {
-//     for (...) {
-//         callback({}, index, array)
-//     }
-// }
-
+let cartList = []
 
 function sumCart(cart) {
     // redefine cart with items that store the total item cost
@@ -18,17 +9,16 @@ function sumCart(cart) {
         return { ...item, cost: itemCost }
     })
 
+    return cart
+}
+
+function getTotalCartCost(cart) {
     // sum all item costs to calculate the total cart cost
     const totalCartCost = cart.reduce((accumulator, currentValue) => {
         return accumulator + currentValue.cost
     }, 0)
-
-    return cart, totalCartCost
+    return totalCartCost
 }
-
-
-
-let cartList = []
 
 document.addEventListener('click', function (e) {
 
@@ -55,31 +45,45 @@ document.addEventListener('click', function (e) {
             })
         }
     })
-    sumCart(cartList)
-    // console.log("cart =", cart, "Total cart cost =", totalCartCost) 
+    document.getElementById('cart').innerHTML = getCartHtml()
+    document.getElementById('cart').innerHTML += getCartTotal()
 })
 
-function getItemsListHtml() {
-    let itemsList = ''
+function getItemsHtml() {
+    let itemsHtml = ''
 
     merchItems.forEach(function (item) {
-        itemsList += `
+        itemsHtml += `
         <div class="merch-item">
             <h2>${item.itemName}</h2>
             <i class="gg-add" id="gg-add" data-${item.id}="${item.id}"></i>
             <p>$${item.price}</p>
         </div>`
     })
-    return itemsList
+    return itemsHtml
+}
+
+function getCartTotal() {
+    const totalCartCost = getTotalCartCost(sumCart(cartList))
+    const cartTotalHtml = `<h2>Total Cost = $${totalCartCost}</h2>`
+    return cartTotalHtml
 }
 
 function getCartHtml() {
-    let cartList = ''
+    const cartItemsCost = sumCart(cartList)
+
+    let cartHtml = ''
+
+    cartItemsCost.forEach(item => {
+        cartHtml += `
+        <div class="cart-item">
+            <h2>${item.itemName} (x${item.quantity})</h2>
+            <p>$${item.cost}</p>
+        </div>`
+    })
+
+    console.log(cartHtml)
+    return cartHtml
 }
 
-
-document.getElementById('items-list').innerHTML = getItemsListHtml()
-
-
-
-// document.getElementById('cart') = 
+document.getElementById('items').innerHTML = getItemsHtml()

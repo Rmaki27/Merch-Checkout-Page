@@ -11,35 +11,41 @@ import { merchItems } from "./data.js"
 // }
 
 
+function sumCart(cart) {
+    // redefine cart with items that store the total item cost
+    cart = cart.map(item => {
+        const itemCost = item.price * item.quantity
+        return { ...item, cost: itemCost }
+    })
+
+    // sum all item costs to calculate the total cart cost
+    const totalCartCost = cart.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue.cost
+    }, 0)
+
+    return cart, totalCartCost
+}
+
 
 
 let cartList = []
 
 document.addEventListener('click', function (e) {
 
-    // console.log('clicked')
-
     // find match in merchItems
     merchItems.forEach(function (element, index) {
-        // console.log(index)
-        // console.log('e.target.dataset', e.target.dataset)
-        // console.log('element.data', element.data)
-        // console.log('e.target.dataset[element.data]', e.target.dataset[element.data])
 
 
         // if match found
         if (e.target.dataset[element.id]) {
-            console.log(element.itemName)
 
             const elementIndex = cartList.findIndex((item) =>
                 element.id === item.id
             )
 
-
             // case 1: if item already exists in cart
             if (elementIndex !== -1) {
                 cartList[elementIndex].quantity++
-                console.log(cartList[elementIndex].quantity)
                 return
             }
 
@@ -47,12 +53,10 @@ document.addEventListener('click', function (e) {
             cartList.push({
                 ...element, quantity: 1
             })
-            console.log(cartList)
         }
-
-
     })
-
+    sumCart(cartList)
+    // console.log("cart =", cart, "Total cart cost =", totalCartCost) 
 })
 
 function getItemsListHtml() {
@@ -71,14 +75,10 @@ function getItemsListHtml() {
 
 function getCartHtml() {
     let cartList = ''
-
-
-
-
 }
 
-document.getElementById('items-list').innerHTML = getItemsListHtml()
 
+document.getElementById('items-list').innerHTML = getItemsListHtml()
 
 
 

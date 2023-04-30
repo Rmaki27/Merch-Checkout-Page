@@ -1,49 +1,6 @@
 import { merchItems } from "./data.js"
+import { getCart, addToCart, sumCart } from "./utils/cart.js"
 
-function setCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart))
-}
-
-function getCart() {
-    return JSON.parse(localStorage.getItem("cart")) || []
-}
-
-function addToCart(itemToAdd) {
-    // console.log(item)
-    const cart = getCart()
-    const elementIndex = cart.findIndex((currentItem) =>
-        itemToAdd.id === currentItem.id
-    )
-
-    // case 1: if item already exists in cart
-    if (elementIndex !== -1) {
-        // increment quantity of item
-        setCart(cart.map(currentItem => {
-            // if item to add
-            if (currentItem.id === itemToAdd.id) {
-                return { ...currentItem, quantity: currentItem.quantity + 1 }
-            }
-
-            return currentItem
-        }))
-
-        //  case 2: if item does not exist in cart
-    } else {
-        // add new item to cart
-        setCart([...cart, { ...itemToAdd, quantity: 1, }])
-
-    }
-}
-
-function sumCart(cart) {
-    // redefine cart with items that store the total item cost
-    cart = cart.map(item => {
-        const itemCost = item.price * item.quantity
-        return { ...item, cost: itemCost }
-    })
-
-    return cart
-}
 
 function getTotalCartCost(cart) {
     // sum all item costs to calculate the total cart cost
@@ -63,7 +20,7 @@ document.addEventListener('click', function (e) {
             addToCart(item)
 
             const updatedCart = getCart()
-            console.log(updatedCart)
+            // console.log(updatedCart)
             document.getElementById('cart').innerHTML = getCartHtml(updatedCart)
             document.getElementById('cart').innerHTML += getCartTotal(updatedCart)
         }

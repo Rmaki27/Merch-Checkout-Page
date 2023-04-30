@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+}
+
+.merch-item {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.items {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: aqua;
+    width: 30%;
+}
+
+.item-name {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.item-price {
+    margin: 0;
+}
+
+.gg-add {
+    display: flex;
+    justify-content: center;
+}
+
+/* .item-details {
+    display: inline;
+} */

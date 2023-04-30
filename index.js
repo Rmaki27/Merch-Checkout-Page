@@ -1,6 +1,17 @@
 import { merchItems } from "./data.js"
 
-let cartList = []
+function setCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart))
+}
+
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || []
+}
+
+function addToCart(item) {
+    const currentCart = getCart()
+    setCart([...currentCart, item])
+}
 
 function sumCart(cart) {
     // redefine cart with items that store the total item cost
@@ -22,55 +33,62 @@ function getTotalCartCost(cart) {
 
 document.addEventListener('click', function (e) {
 
+
     // find match in merchItems
     merchItems.forEach(function (element, index) {
 
-
         // if match found
         if (e.target.dataset[element.id]) {
+            const cart = getCart()
 
-            const elementIndex = cartList.findIndex((item) =>
+            const elementIndex = cart.findIndex((item) =>
                 element.id === item.id
             )
 
             // case 1: if item already exists in cart
             if (elementIndex !== -1) {
-                cartList[elementIndex].quantity++
-                return
+                // cartList[elementIndex].quantity++
+
+                //  case 2: if item does not exist in cart
+            } else {
+                addToCart({
+                    ...element,
+                    quantity: 1,
+                })
             }
 
-            //  case 2: if item does not exist in cart
-            cartList.push({
-                ...element, quantity: 1
-            })
+            const updatedCart = getCart()
+            document.getElementById('cart').innerHTML = getCartHtml(updatedCart)
+            document.getElementById('cart').innerHTML += getCartTotal(updatedCart)
         }
     })
-    document.getElementById('cart').innerHTML = getCartHtml()
-    document.getElementById('cart').innerHTML += getCartTotal()
+
 })
 
-function getItemsHtml() {
+function renderItemsHtml() {
     let itemsHtml = ''
 
     merchItems.forEach(function (item) {
         itemsHtml += `
         <div class="merch-item">
-            <h2>${item.itemName}</h2>
-            <i class="gg-add" id="gg-add" data-${item.id}="${item.id}"></i>
-            <p>$${item.price}</p>
+            <div class="item-details">
+                <h2 class="item-name">${item.itemName}</h2>
+                <p class="item-price">$${item.price}</p>
+            </div>
+            <i class="gg-add" id="gg-add" data-${item.id}="${item.id}"></i>    
         </div>`
     })
     return itemsHtml
 }
 
-function getCartTotal() {
-    const totalCartCost = getTotalCartCost(sumCart(cartList))
+function getCartTotal(cart) {
+    const totalCartCost = getTotalCartCost(sumCart(cart))
     const cartTotalHtml = `<h2>Total Cost = $${totalCartCost}</h2>`
     return cartTotalHtml
 }
 
-function getCartHtml() {
-    const cartItemsCost = sumCart(cartList)
+function getCartHtml(cart) {
+    const cartItemsCost = sumCart(cart)
 
     let cartHtml = ''
 
@@ -86,4 +104,15 @@ function getCartHtml() {
     return cartHtml
 }
 
-document.getElementById('items').innerHTML = getItemsHtml()
+document.getElementById('items').innerHTML = renderItemsHtml()
+
+function renderInitialCart() {
+    const cart = getCart()
+
+    if (cart.length > 0) {
+        document.getElementById('cart').innerHTML = getCartHtml(cart)
+        document.getElementById('cart').innerHTML += getCartTotal(cart)
+    }
+}
+
+renderInitialCart()

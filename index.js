@@ -31,10 +31,12 @@ function cartClickHandler(e) {
 document.addEventListener('click', cartClickHandler)
 
 document.getElementById('pay-btn').addEventListener('click', () => {
-
-    console.log('submit payment')
-
     document.getElementById('cart').innerHTML = `<p>Thanks for Submitting your order</p>`
+    document.getElementById('modal').classList.add('hidden')
+})
+
+document.getElementById('submit-btn').addEventListener('click', () => {
+    document.getElementById('modal').classList.remove('hidden')
 
 })
 

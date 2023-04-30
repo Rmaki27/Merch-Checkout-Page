@@ -31,13 +31,15 @@ function cartClickHandler(e) {
 document.addEventListener('click', cartClickHandler)
 
 document.getElementById('pay-btn').addEventListener('click', () => {
-    document.getElementById('cart').innerHTML = `<p>Thanks for Submitting your order</p>`
+    document.getElementById('cart').innerHTML = `<h2>Thank you for Submitting your order! </h2>
+        <p>Your items will be arriving at some point in the near future</p>`
+
     document.getElementById('modal').classList.add('hidden')
+    document.getElementById('submit-btn').classList.add('hidden')
 })
 
 document.getElementById('submit-btn').addEventListener('click', () => {
     document.getElementById('modal').classList.remove('hidden')
-
 })
 
 function renderItems() {

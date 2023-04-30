@@ -23,11 +23,12 @@ function cartClickHandler(e) {
         removeFromCart(getCart(), e.target.dataset.itemToRemove)
         renderCartSummary(getCart())
     }
+
+
+
 }
 
 document.addEventListener('click', cartClickHandler)
-
-// document.addEventListener('click',)
 
 function renderItems() {
     let itemsHtml = ''

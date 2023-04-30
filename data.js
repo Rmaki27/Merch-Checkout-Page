@@ -2,7 +2,7 @@ const merchItems = [
     {
         itemName: 'Shirt',
         id: 'shirt',
-        price: 20,
+        price: 32,
         description: 'Heavyweight garment dyed 100% cotton t-shirt. Screen print on chest and back. Printed label. Standard Fit.',
     },
 

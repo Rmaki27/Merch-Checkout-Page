@@ -30,6 +30,11 @@ function cartClickHandler(e) {
 
 document.addEventListener('click', cartClickHandler)
 
+document.getElementById('modal').addEventListener('submit', () => {
+
+
+})
+
 function renderItems() {
     let itemsHtml = ''
 

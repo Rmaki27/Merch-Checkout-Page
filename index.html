@@ -29,7 +29,17 @@
 
     </div>
 
-    <button class="submit-btn">Submit Order</button>
+    <div class="modal" id="modal">
+        <p class="modal-title">Enter card details</p>
+        <form>
+            <input class="modal-input" type="text" name="name" id="name" placeholder="Enter your name">
+            <input class="modal-input" type="number" name="credit card number" placeholder="Enter card number">
+            <input class="modal-input" type="number" name="cvv" placeholder="Enter CVV">
+        </form>
+        <button class="btn pay-btn">Pay</button>
+    </div>
+
+    <button class="btn submit-btn">Submit Order</button>
 
     <script src="/index.js" type="module"></script>
 </body>

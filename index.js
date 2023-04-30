@@ -37,6 +37,8 @@ function renderItems() {
         itemsHtml += `
         <div class="merch-item">
             <div class="item-details">
+            <img src="${item.image}" alt="${item.itemName} image" class="item-image">
+
                 <h2 class="item-name">${item.itemName}</h2>
                 <p class="item-price">$${item.price}</p>
             </div>
@@ -51,19 +53,22 @@ function renderItems() {
 function renderCartSummary(cart) {
     const cartItemsCost = calculateItemTotals(cart)
 
-    let cartHtml = '<h2>Your Order</h2>'
+    let cartHtml = '<h2 class="order-title">Your Order</h2>'
 
     cartItemsCost.forEach(item => {
         cartHtml += `
         <div class="cart-item">
-            <h2>${item.itemName} ${item.quantity > 1 ? `(x${item.quantity})` : ''}</h2>
-            <p data-item-to-remove=${item.id}>remove</p>
-            <p>$${item.total}</p>
+            <div>
+                <h2 class="cart-item-name">${item.itemName} ${item.quantity > 1 ? `(x${item.quantity})` : ''}</h2>
+                <p class="remove" data-item-to-remove=${item.id}>remove</p>
+            </div>
+            <p class="cart-price">$${item.total}</p>
         </div>`
     })
     const totalCartCost = getTotalCartPrice(calculateItemTotals(cart))
 
-    cartHtml += `<h2>Total Cost = $${totalCartCost}</h2>`
+    cartHtml += `<h2 class="total-cost">Total Cost</h2>
+                 <h2 class="total-cost">$${totalCartCost}</h2>`
 
     document.getElementById('cart').innerHTML = cartHtml
 }

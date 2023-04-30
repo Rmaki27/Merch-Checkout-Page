@@ -1,26 +1,36 @@
 body {
     margin: 0;
     font-family: Inter, sans-serif;
+    /* font-size: 40px; */
 }
 
 .logo {
     display: block;
-    margin: 1rem auto 1rem auto;
     width: 25vw;
+    margin: 1rem auto 1rem auto;
     /* text-align: center; */
 }
 
+.site-header {
+    display: block;
+    font-family: 'Raleway';
+    text-align: center;
+    margin: 1rem auto 1rem auto;
+}
+
 .merch-item {
+    font-size: 1rem;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 3rem;
     border-bottom: 1px solid black;
 }
 
 .items {
     margin: auto;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -34,12 +44,51 @@ body {
 }
 
 .item-price {
-    /* margin: 0;/ */
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.item-image {
+    display: flex;
+    width: 15vw;
 }
 
 .gg-add {
     display: flex;
     justify-content: center;
+    align-items: flex-end;
+}
+
+
+.order-title {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.cart {
+    width: 80%;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.remove {
+    display: flex;
+}
+
+.cart-item-name,
+.cart-item-price,
+.remove {
+    margin: auto 0 auto 0;
+}
+
+.total-cost {
+    padding-left: 1.5rem;
 }
 
 /* .item-details {

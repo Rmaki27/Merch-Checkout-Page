@@ -21,7 +21,7 @@ function cartClickHandler(e) {
 document.addEventListener('click', cartClickHandler)
 
 
-function renderItemsHtml() {
+function renderItems() {
     let itemsHtml = ''
 
     merchItems.forEach(function (item) {
@@ -33,8 +33,10 @@ function renderItemsHtml() {
             </div>
             <i class="gg-add" id="gg-add" data-${item.id}="${item.id}"></i>    
         </div>`
+
     })
-    return itemsHtml
+
+    document.getElementById('items').innerHTML = itemsHtml
 }
 
 function renderCartSummary(cart) {
@@ -45,7 +47,7 @@ function renderCartSummary(cart) {
     cartItemsCost.forEach(item => {
         cartHtml += `
         <div class="cart-item">
-            <h2>${item.itemName} (x${item.quantity})</h2>
+            <h2>${item.itemName} ${item.quantity > 1 ? `(x${item.quantity})` : ''}</h2>
             <p>$${item.cost}</p>
         </div>`
     })
@@ -56,7 +58,6 @@ function renderCartSummary(cart) {
     document.getElementById('cart').innerHTML = cartHtml
 }
 
-document.getElementById('items').innerHTML = renderItemsHtml()
 
 function renderInitialCart() {
     const cart = getCart()
@@ -67,3 +68,4 @@ function renderInitialCart() {
 }
 
 renderInitialCart()
+renderItems()

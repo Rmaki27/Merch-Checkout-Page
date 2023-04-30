@@ -1,14 +1,8 @@
 import { merchItems } from "./data.js"
-import { getCart, addToCart, sumCart } from "./utils/cart.js"
+import { getCart, addToCart, sumCart, getTotalCartPrice } from "./utils/cart.js"
 
 
-function getTotalCartCost(cart) {
-    // sum all item costs to calculate the total cart cost
-    const totalCartCost = cart.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue.cost
-    }, 0)
-    return totalCartCost
-}
+
 
 document.addEventListener('click', function (e) {
 
@@ -45,7 +39,7 @@ function renderItemsHtml() {
 }
 
 function getCartTotal(cart) {
-    const totalCartCost = getTotalCartCost(sumCart(cart))
+    const totalCartCost = getTotalCartPrice(sumCart(cart))
     const cartTotalHtml = `<h2>Total Cost = $${totalCartCost}</h2>`
     return cartTotalHtml
 }

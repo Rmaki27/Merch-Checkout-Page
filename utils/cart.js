@@ -42,3 +42,11 @@ export function sumCart(cart) {
     return cart
 }
 
+export function getTotalCartPrice(cart) {
+    // sum all item costs to calculate the total cart cost
+    const totalCartPrice = cart.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue.cost
+    }, 0)
+    return totalCartPrice
+}
+

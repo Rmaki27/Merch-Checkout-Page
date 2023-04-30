@@ -32,21 +32,28 @@ export function addToCart(itemToAdd) {
     }
 }
 
-export function sumCart(cart) {
+export function calculateItemTotals(cart) {
     // redefine cart with items that store the total item cost
-    cart = cart.map(item => {
-        const itemCost = item.price * item.quantity
-        return { ...item, cost: itemCost }
+    return cart.map(item => {
+        const totalItemPrice = item.price * item.quantity
+        return { ...item, total: totalItemPrice }
     })
-
-    return cart
 }
 
 export function getTotalCartPrice(cart) {
     // sum all item costs to calculate the total cart cost
     const totalCartPrice = cart.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue.cost
+        return accumulator + currentValue.total
     }, 0)
     return totalCartPrice
 }
 
+export function removeFromCart(cart, itemId) {
+    const newArray = cart.filter(currentItem =>
+        currentItem.id !== itemId
+    )
+    console.log("new Array", newArray)
+
+    setCart(newArray)
+
+}

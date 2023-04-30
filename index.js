@@ -1,5 +1,5 @@
 import { merchItems } from "./data.js"
-import { getCart, addToCart, sumCart, getTotalCartPrice } from "./utils/cart.js"
+import { getCart, addToCart, calculateItemTotals, getTotalCartPrice, removeFromCart } from "./utils/cart.js"
 
 
 
@@ -16,10 +16,18 @@ function cartClickHandler(e) {
             renderCartSummary(updatedCart)
         }
     })
+
+    // console.log(e.target.dataset.itemToRemove)
+    if (e.target.dataset.itemToRemove) {
+        console.log('test')
+        removeFromCart(getCart(), e.target.dataset.itemToRemove)
+        renderCartSummary(getCart())
+    }
 }
 
 document.addEventListener('click', cartClickHandler)
 
+// document.addEventListener('click',)
 
 function renderItems() {
     let itemsHtml = ''
@@ -40,7 +48,7 @@ function renderItems() {
 }
 
 function renderCartSummary(cart) {
-    const cartItemsCost = sumCart(cart)
+    const cartItemsCost = calculateItemTotals(cart)
 
     let cartHtml = '<h2>Your Order</h2>'
 
@@ -48,16 +56,16 @@ function renderCartSummary(cart) {
         cartHtml += `
         <div class="cart-item">
             <h2>${item.itemName} ${item.quantity > 1 ? `(x${item.quantity})` : ''}</h2>
-            <p>$${item.cost}</p>
+            <p data-item-to-remove=${item.id}>remove</p>
+            <p>$${item.total}</p>
         </div>`
     })
-    const totalCartCost = getTotalCartPrice(sumCart(cart))
+    const totalCartCost = getTotalCartPrice(calculateItemTotals(cart))
 
     cartHtml += `<h2>Total Cost = $${totalCartCost}</h2>`
 
     document.getElementById('cart').innerHTML = cartHtml
 }
-
 
 function renderInitialCart() {
     const cart = getCart()

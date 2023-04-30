@@ -3,9 +3,7 @@ import { getCart, addToCart, sumCart, getTotalCartPrice } from "./utils/cart.js"
 
 
 
-
-document.addEventListener('click', function (e) {
-
+function cartClickHandler(e) {
     // find match in merchItems
     merchItems.forEach(function (item, index) {
 
@@ -15,12 +13,13 @@ document.addEventListener('click', function (e) {
 
             const updatedCart = getCart()
             // console.log(updatedCart)
-            document.getElementById('cart').innerHTML = getCartHtml(updatedCart)
-            document.getElementById('cart').innerHTML += getCartTotal(updatedCart)
+            renderCartSummary(updatedCart)
         }
     })
+}
 
-})
+document.addEventListener('click', cartClickHandler)
+
 
 function renderItemsHtml() {
     let itemsHtml = ''
@@ -38,16 +37,10 @@ function renderItemsHtml() {
     return itemsHtml
 }
 
-function getCartTotal(cart) {
-    const totalCartCost = getTotalCartPrice(sumCart(cart))
-    const cartTotalHtml = `<h2>Total Cost = $${totalCartCost}</h2>`
-    return cartTotalHtml
-}
-
-function getCartHtml(cart) {
+function renderCartSummary(cart) {
     const cartItemsCost = sumCart(cart)
 
-    let cartHtml = ''
+    let cartHtml = '<h2>Your Order</h2>'
 
     cartItemsCost.forEach(item => {
         cartHtml += `
@@ -56,9 +49,11 @@ function getCartHtml(cart) {
             <p>$${item.cost}</p>
         </div>`
     })
+    const totalCartCost = getTotalCartPrice(sumCart(cart))
 
-    // console.log(cartHtml)
-    return cartHtml
+    cartHtml += `<h2>Total Cost = $${totalCartCost}</h2>`
+
+    document.getElementById('cart').innerHTML = cartHtml
 }
 
 document.getElementById('items').innerHTML = renderItemsHtml()
@@ -67,8 +62,7 @@ function renderInitialCart() {
     const cart = getCart()
 
     if (cart.length > 0) {
-        document.getElementById('cart').innerHTML = getCartHtml(cart)
-        document.getElementById('cart').innerHTML += getCartTotal(cart)
+        renderCartSummary(cart)
     }
 }
 

@@ -5,6 +5,7 @@ import {
   calculateItemTotals,
   getTotalCartPrice,
   removeFromCart,
+  completePayment,
 } from "./utils/cart.js";
 
 function cartClickHandler(e) {
@@ -30,13 +31,13 @@ function cartClickHandler(e) {
 }
 
 function payBtnClickHandler() {
-  document.getElementById(
-    "cart"
-  ).innerHTML = `<h2>Thank you for Submitting your order! </h2>
+  document.body.innerHTML = `<h2>Thank you for Submitting your order! </h2>
         <p>Your items will be arriving at some point in the near future</p>`;
 
   document.getElementById("modal").classList.add("hidden");
   document.getElementById("submit-btn").classList.add("hidden");
+
+  completePayment();
 }
 
 function submitBtnClickHandler() {

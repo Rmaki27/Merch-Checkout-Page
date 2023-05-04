@@ -7,7 +7,6 @@ export function getCart() {
 }
 
 export function addToCart(itemToAdd) {
-  // console.log(item)
   const cart = getCart();
   const elementIndex = cart.findIndex(
     (currentItem) => itemToAdd.id === currentItem.id
@@ -66,4 +65,8 @@ export function removeFromCart(cart, itemId) {
     const updatedCart = cart.filter((currentItem) => currentItem.id !== itemId);
     setCart(updatedCart);
   }
+}
+
+export function completePayment() {
+  localStorage.removeItem("cart");
 }

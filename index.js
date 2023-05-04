@@ -29,9 +29,7 @@ function cartClickHandler(e) {
   }
 }
 
-document.addEventListener("click", cartClickHandler);
-
-document.getElementById("pay-btn").addEventListener("click", () => {
+function payBtnClickHandler() {
   document.getElementById(
     "cart"
   ).innerHTML = `<h2>Thank you for Submitting your order! </h2>
@@ -39,11 +37,19 @@ document.getElementById("pay-btn").addEventListener("click", () => {
 
   document.getElementById("modal").classList.add("hidden");
   document.getElementById("submit-btn").classList.add("hidden");
-});
+}
 
-document.getElementById("submit-btn").addEventListener("click", () => {
+function submitBtnClickHandler() {
   document.getElementById("modal").classList.remove("hidden");
-});
+}
+
+document.addEventListener("click", cartClickHandler);
+document
+  .getElementById("pay-btn")
+  .addEventListener("click", payBtnClickHandler);
+document
+  .getElementById("submit-btn")
+  .addEventListener("click", submitBtnClickHandler);
 
 function renderItems() {
   let itemsHtml = "";

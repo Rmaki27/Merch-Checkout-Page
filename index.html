@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Merch Checkout Page</title>
     <!-- ICONS -->
-    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/add.css' rel='stylesheet'>
+    <link
+      href="https://unpkg.com/css.gg@2.0.0/icons/css/add.css"
+      rel="stylesheet"
+    />
     <!-- CSS -->
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/index.css" />
     <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
-
-<body>
-    <img src="./images/toro-logo.jpg" alt="toro y moi logo" class="logo">
+  <body>
+    <img src="./images/toro-logo.jpg" alt="toro y moi logo" class="logo" />
     <h1 class="site-header">Merch Store</h1>
 
-    <div class="items" id="items">
+    <div class="items" id="items"></div>
 
-    </div>
-
-    <div class="cart" id="cart">
-
-    </div>
+    <div class="cart" id="cart"></div>
 
     <div class="modal hidden" id="modal">
+      <div class="modal-content">
         <p class="modal-title">Enter card details</p>
         <form>
-            <input class="modal-input" type="text" name="name" id="name" placeholder="Enter your name">
-            <input class="modal-input" type="number" name="credit card number" placeholder="Enter card number">
-            <input class="modal-input" type="number" name="cvv" placeholder="Enter CVV">
+          <input
+            class="modal-input"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name"
+          />
+          <input
+            class="modal-input"
+            type="text"
+            name="credit card number"
+            placeholder="Enter card number"
+          />
+          <input
+            class="modal-input"
+            type="text"
+            name="cvv"
+            placeholder="Enter CVV"
+          />
         </form>
         <button class="btn pay-btn" id="pay-btn">Pay</button>
+      </div>
     </div>
-
     <button class="btn submit-btn" id="submit-btn">Submit Order</button>
 
     <script src="/index.js" type="module"></script>
-</body>
-
+  </body>
 </html>

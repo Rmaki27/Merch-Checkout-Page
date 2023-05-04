@@ -57,7 +57,7 @@ function renderItems() {
   merchItems.forEach(function (item) {
     itemsHtml += `
         <div class="merch-item">
-            <div class="item-details">
+            <div class="item-details">  
             <img src="${item.image}" alt="${item.itemName} image" class="item-image">
                 <div>
                   <h2 class="item-name">${item.itemName}</h2>

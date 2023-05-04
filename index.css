@@ -1,168 +1,179 @@
 body {
-    margin: 0;
-    font-family: Verdana, sans-serif;
+  margin: 0;
+  font-family: Verdana, sans-serif;
 }
 
 .logo {
-    display: block;
-    width: 25vw;
-    margin: 1rem auto 1rem auto;
+  display: block;
+  width: 25vw;
+  margin: 1rem auto 1rem auto;
 }
 
 .site-header {
-    display: block;
-    font-family: 'Raleway';
-    text-align: center;
-    margin: 1rem auto 1rem auto;
+  display: block;
+  font-family: "Raleway";
+  text-align: center;
+  margin: 1rem auto 1rem auto;
 }
 
 .merch-item {
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 3rem;
-    border-bottom: 1px solid #D2D2D2;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #d2d2d2;
 }
 
-
 .item-details {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .items {
-    margin: auto;
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    /* background-color: aqua; */
-    width: 75%;
+  margin: auto;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  /* background-color: aqua; */
+  width: 75%;
 }
 
 .item-name {
-    margin-top: 0;
-    margin-bottom: 5px;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 .item-price {
-    margin-top: 0.5rem;
-    margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .item-image {
-    display: flex;
-    width: 15vw;
+  display: flex;
+  width: 15vw;
 }
 
 .gg-add {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-
 .order-title {
-    text-align: center;
-    margin: 1rem auto 1rem auto;
+  text-align: center;
+  margin: 1rem auto 1rem auto;
 }
 
 .cart {
-    width: 80%;
-    border: 1px solid black;
-    margin: auto auto 2rem auto;
+  width: 80%;
+  border: 1px solid black;
+  margin: auto auto 2rem auto;
 }
 
 .cart-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
 }
 
 .remove {
-    display: flex;
+  display: flex;
 }
 
 .cart-item-name,
 .cart-item-price,
 .remove {
-    margin: auto 0 auto 0;
+  margin: auto 0 auto 0;
 }
 
 .total-cost-text {
-    padding-left: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .total-cost-price {
-    padding-right: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .total-cost-container {
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black;
 }
 
 .btn {
-    font-family: Verdana, Inter, sans-serif;
-    display: block;
-    background-color: #9fd3c7;
-    font-size: 1rem;
-    color: #ffffff;
-    margin: 1.7rem auto 1.7rem auto;
-    border: none;
-    border-radius: 0.2rem;
-    text-align: center;
-    width: 70%;
-    padding: 1rem;
-    cursor: pointer;
+  font-family: Verdana, Inter, sans-serif;
+  display: block;
+  background-color: #9fd3c7;
+  font-size: 1rem;
+  color: #ffffff;
+  margin: 1.7rem auto 1.7rem auto;
+  border: none;
+  border-radius: 0.2rem;
+  text-align: center;
+  width: 70%;
+  padding: 1rem;
+  cursor: pointer;
 }
 
 .pay-btn {
-    width: 85%;
+  width: 100%;
 }
 
 .modal {
-    position: fixed;
-    top: 50%;
-    bottom: 0;
-    right: 50%;
-    left: 0;
-    width: 90%;
-    height: 430px;
-    font-family: Verdana, Inter, sans-serif;
-    font-weight: bold;
-    background-color: white;
-    box-shadow: 0px 0px 40px 2px #666;
-    color: black;
+  z-index: 10;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  /* position: fixed;
+  top: 50%;
+  bottom: 0;
+  right: 50%;
+  left: 0;
+  width: 200%;
+  height: 430px;
+  */
+}
 
+.modal-content {
+  font-family: Verdana, Inter, sans-serif;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 40px 2px #666;
+  padding: 20px 40px;
+  color: black;
 }
 
 .modal-input {
-    display: block;
-    margin: auto;
-    /* width: ; */
-    /* margin-bottom: 1rem; */
-    width: 80%;
-    margin: 1rem auto 1.5rem auto;
-    padding: 1.2rem;
-    font-size: 1.2rem;
-    border: 1.7px solid #757575;
-    border-radius: 0.3rem;
+  display: block;
+  width: 100%;
+  margin: 1rem auto 1.5rem auto;
+  padding: 1.2rem;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  border: 1.7px solid #757575;
+  border-radius: 0.3rem;
 }
 
 .modal-title {
-    text-align: center;
-    font-size: 1.7rem;
+  text-align: center;
+  font-size: 1.7rem;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 ::placeholder {
-    color: #757575;
+  color: #757575;
 }

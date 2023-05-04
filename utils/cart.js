@@ -52,20 +52,18 @@ export function getTotalCartPrice(cart) {
 export function removeFromCart(cart, itemId) {
   // if quantity of item to remove is greater than 1, decrement item quantity
   if (cart.find((item) => item.id === itemId).quantity > 1) {
-    const newArray = cart.map((currentItem) => {
+    const updatedCart = cart.map((currentItem) => {
       // if item to add
       if (currentItem.id === itemId) {
         return { ...currentItem, quantity: currentItem.quantity - 1 };
       }
       return currentItem;
     });
-    setCart(newArray);
+    setCart(updatedCart);
 
     // if quantity of item to remove is 1, remove item from cart
   } else {
-    const newArray = cart.filter((currentItem) => currentItem.id !== itemId);
-    console.log("new Array", newArray);
-
-    setCart(newArray);
+    const updatedCart = cart.filter((currentItem) => currentItem.id !== itemId);
+    setCart(updatedCart);
   }
 }

@@ -53,9 +53,10 @@ function renderItems() {
         <div class="merch-item">
             <div class="item-details">
             <img src="${item.image}" alt="${item.itemName} image" class="item-image">
-
-                <h2 class="item-name">${item.itemName}</h2>
-                <p class="item-price">$${item.price}</p>
+                <div>
+                  <h2 class="item-name">${item.itemName}</h2>
+                  <p class="item-price">$${item.price}</p>
+                </div>
             </div>
             <i class="gg-add" id="gg-add" data-${item.id}="${item.id}"></i>    
         </div>`;

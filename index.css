@@ -26,6 +26,13 @@ body {
     border-bottom: 1px solid #D2D2D2;
 }
 
+
+.item-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .items {
     margin: auto;
     margin-top: 2rem;

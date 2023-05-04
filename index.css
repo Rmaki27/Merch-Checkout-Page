@@ -1,14 +1,12 @@
 body {
     margin: 0;
     font-family: Verdana, sans-serif;
-    /* font-size: 40px; */
 }
 
 .logo {
     display: block;
     width: 25vw;
     margin: 1rem auto 1rem auto;
-    /* text-align: center; */
 }
 
 .site-header {
@@ -25,7 +23,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 3rem;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #D2D2D2;
 }
 
 .items {
@@ -45,7 +43,7 @@ body {
 
 .item-price {
     margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .item-image {
@@ -62,13 +60,13 @@ body {
 
 .order-title {
     text-align: center;
-    margin-bottom: 0;
+    margin: 1rem auto 1rem auto;
 }
 
 .cart {
     width: 80%;
     border: 1px solid black;
-    margin: auto;
+    margin: auto auto 2rem auto;
 }
 
 .cart-item {
@@ -87,8 +85,18 @@ body {
     margin: auto 0 auto 0;
 }
 
-.total-cost {
+.total-cost-text {
     padding-left: 1.5rem;
+}
+
+.total-cost-price {
+    padding-right: 1.5rem;
+}
+
+.total-cost-container {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid black;
 }
 
 .btn {
@@ -117,7 +125,7 @@ body {
     right: 50%;
     left: 0;
     width: 90%;
-    height: 400px;
+    height: 430px;
     font-family: Verdana, Inter, sans-serif;
     font-weight: bold;
     background-color: white;
@@ -132,13 +140,16 @@ body {
     /* width: ; */
     /* margin-bottom: 1rem; */
     width: 80%;
-    margin: 1rem auto 1rem auto;
+    margin: 1rem auto 1.5rem auto;
     padding: 1.2rem;
     font-size: 1.2rem;
+    border: 1.7px solid #757575;
+    border-radius: 0.3rem;
 }
 
 .modal-title {
     text-align: center;
+    font-size: 1.7rem;
 }
 
 .hidden {

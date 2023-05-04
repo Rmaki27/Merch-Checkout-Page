@@ -19,6 +19,7 @@ function cartClickHandler(e) {
 
     // console.log(e.target.dataset.itemToRemove)
     if (e.target.dataset.itemToRemove) {
+        console.log(e.target.dataset.itemToRemove)
         console.log('test')
         removeFromCart(getCart(), e.target.dataset.itemToRemove)
         renderCartSummary(getCart())
@@ -79,8 +80,10 @@ function renderCartSummary(cart) {
     })
     const totalCartCost = getTotalCartPrice(calculateItemTotals(cart))
 
-    cartHtml += `<h2 class="total-cost">Total Cost</h2>
-                 <h2 class="total-cost">$${totalCartCost}</h2>`
+    cartHtml += `<div class="total-cost-container">
+                    <h2 class="total-cost-text">Total Cost</h2>
+                    <h2 class="total-cost-price">$${totalCartCost}</h2>
+                 </div>`
 
     document.getElementById('cart').innerHTML = cartHtml
 }
